@@ -24,6 +24,13 @@ code {
     monospace;
 }
 
+.homepage {
+  height: 100%;
+  background-image: url("https://imgmedia.lbb.in/media/2021/03/6053103ed845f4305c2326ab_1616056382924.jpeg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 .nav-link {
   color: white !important;
 }

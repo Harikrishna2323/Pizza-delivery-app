@@ -17,7 +17,7 @@ const Home = () => {
     dispatch(getAllPizzas());
   }, []);
   return (
-    <div>
+    <div className="homepage">
       <Filter />
       <div className="row justify-content-center">
         {loading ? (

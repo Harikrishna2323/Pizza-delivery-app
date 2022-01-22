@@ -11,7 +11,7 @@ const Navbar = () => {
   const dispatch = useDispatch();
   return (
     <div>
-      <nav className="navbar navbar-expand-lg shadow-lg p-3 mb-5 bg-black rounded">
+      <nav className="navbar navbar-expand-lg shadow-lg p-3  bg-black rounded">
         <Link to="/" className="navbar-brand">
           Pirate's Cove Pizza
         </Link>

@@ -24,30 +24,29 @@ function App() {
     <Router>
       <Navbar />
       {/* <Filter /> */}
-      <div className="App">
-        <Routes>
-          <Route exact path="/" element={<Home />} />
-          <Route exact path="/cart" element={<Cart />} />
-          <Route exact path="/register" element={<Register />} />
-          <Route exact path="/login" element={<Login />} />
-          <Route exact path="/orders" element={<Orders />} />
 
-          {currentUser && currentUser.isAdmin && (
-            <>
-              <Route exact path="/admin" element={<Admin />} />
-              <Route exact path="/admin/userslist" element={<Userslist />} />
-              <Route exact path="/admin/orderslist" element={<Orderslist />} />
-              <Route exact path="/admin/pizzaslist" element={<Pizzaslist />} />
-              <Route exact path="/admin/addpizza" element={<Addpizza />} />
-              <Route
-                exact
-                path="/admin/editpizza/:pizzaid"
-                element={<Editpizza />}
-              />
-            </>
-          )}
-        </Routes>
-      </div>
+      <Routes>
+        <Route exact path="/" element={<Home />} />
+        <Route exact path="/cart" element={<Cart />} />
+        <Route exact path="/register" element={<Register />} />
+        <Route exact path="/login" element={<Login />} />
+        <Route exact path="/orders" element={<Orders />} />
+
+        {currentUser && currentUser.isAdmin && (
+          <>
+            <Route exact path="/admin" element={<Admin />} />
+            <Route exact path="/admin/userslist" element={<Userslist />} />
+            <Route exact path="/admin/orderslist" element={<Orderslist />} />
+            <Route exact path="/admin/pizzaslist" element={<Pizzaslist />} />
+            <Route exact path="/admin/addpizza" element={<Addpizza />} />
+            <Route
+              exact
+              path="/admin/editpizza/:pizzaid"
+              element={<Editpizza />}
+            />
+          </>
+        )}
+      </Routes>
     </Router>
   );
 }
