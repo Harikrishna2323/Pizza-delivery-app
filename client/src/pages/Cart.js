@@ -13,7 +13,7 @@ export default function Cart() {
   var subtotal = cartItems.reduce((x, item) => x + item.price, 0);
   const dispatch = useDispatch();
   return (
-    <div style={{ backgroundColor: "#fff" }}>
+    <div>
       <div className="row justify-content-center p-2" data-aos="fade-down">
         <div className="col-md-6">
           <h2 style={{ fontSize: "40px" }}>My Cart</h2>

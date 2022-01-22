@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Modal } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../redux/actions/cartActions";
 import Aos from "aos";
 import "aos/dist/aos.css";
+import { useNavigate } from "react-router-dom";
 
 const Pizza = ({ pizza }) => {
+  const { currentUser } = useSelector((state) => state.loginUserReducer);
+  const navigate = useNavigate();
   Aos.init();
   const [quantity, setQuantity] = useState(1);
   const [varient, setVarient] = useState("small");
@@ -20,7 +23,10 @@ const Pizza = ({ pizza }) => {
   };
 
   return (
-    <div data-aos="zoom-in" className="shadow-lg p-3 mb-5 bg-white rounded">
+    <div
+      data-aos="zoom-in"
+      className="shadow-lg p-3 mb-5 bg-white border border-dark"
+    >
       <div className="container " onClick={handleShow}>
         <h4>{pizza.name}</h4>
         <img
@@ -64,9 +70,15 @@ const Pizza = ({ pizza }) => {
           </p>
         </div>
         <div className="m-1 w-100">
-          <button className="btn" onClick={addItemToCart}>
-            Add to cart
-          </button>
+          {currentUser ? (
+            <button className="btn" onClick={addItemToCart}>
+              Add to cart
+            </button>
+          ) : (
+            <button className="btn" onClick={() => navigate("/login")}>
+              Login to Continue
+            </button>
+          )}
         </div>
       </div>
       <Modal show={show} onHide={handleClose} animation={true}>
