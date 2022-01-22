@@ -21,7 +21,7 @@ const Pizza = ({ pizza }) => {
 
   return (
     <div data-aos="zoom-in" className="shadow-lg p-3 mb-5 bg-white rounded">
-      <div onClick={handleShow}>
+      <div className="container " onClick={handleShow}>
         <h4>{pizza.name}</h4>
         <img
           className="img-fluid"

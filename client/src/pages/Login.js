@@ -45,7 +45,7 @@ export default function Login() {
               }}
             />
             <input
-              type="text"
+              type="password"
               placeholder="password"
               className="form-control"
               value={password}

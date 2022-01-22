@@ -18,7 +18,7 @@ export default function Orderslist() {
       <AdminNav />
       {loading && <Loading />}
       {error && <Error error="Something went wrong" />}
-      <table className="table table-striped table-bordered table-responsive-sm">
+      <table className="table table-striped table-bordered table-responsive-sm bg-white">
         <thead className="thead-dark">
           <tr>
             <th>Order Id</th>
