@@ -1,9 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const { v4: uuidv4 } = require("uuid");
-const stripe = require("stripe")(
-  "sk_test_51KDsNrSDTGo88MGhOgKcofqlUsDZjgAjlGdxkOlJxAGzHaiF57qBTqvY2Dty6wb1VbhdXgbIVwcisDVjAYjJ8Lrs00ts6YDLwd"
-);
+const stripe = require("stripe")(`${process.env.STRIPE_SECRET_KEY}`);
 const Order = require("../models/Order");
 
 //PLACE ORDER
@@ -19,7 +17,7 @@ router.post("/placeorder", async (req, res) => {
     const payment = await stripe.charges.create(
       {
         amount: subtotal * 100,
-        currency: "inr",
+        currency: "usd",
         customer: customer.id,
         receipt_email: token.email,
       },
@@ -48,7 +46,9 @@ router.post("/placeorder", async (req, res) => {
 
       res.send("Order placed successfully");
     } else {
-      res.send("Payment failed");
+      res.status(400).json({
+        message: "Payment failed",
+      });
     }
   } catch (error) {
     console.log(error);
